@@ -56,6 +56,28 @@ int main(){
         /*BORA PEGRA AS PROPRIEDADES DA IMAGEM*/
         Mat_<Vec3b> imcinza (qline, qcols, CV_8UC3);
 
+        /*criar a imagem*/
+
+        int x, y;
+
+        fp = fopen("resultado.txt", "r");
+        for(y=0; y<qline; y++){
+
+            for(x=0; x<qcols; x++){
+
+                fscanf(fp, "%d", &number);
+                imcinza(x,y)[0] = number;
+                imcinza(x,y)[1] = number;
+                imcinza(x,y)[2] = number;
+            }
+        }
+        fclose(fp);
+
+        imshow("imagem em tons de cinza", imcinza);
+    waitKey(0);
+
+        system("pause");
+        return 0;
 
 }   
 
